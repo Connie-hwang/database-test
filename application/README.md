@@ -30,11 +30,11 @@ Simple Node.js + Express REST API for TAB_AD_BANNER table
 
 ```bash
 # Health check
-curl http://localhost:3000/health
+curl http://localhost:3030/health
 
 # Get all banners
-curl http://localhost:3000/api/banners
+curl http://localhost:3030/api/banners
 
 # Get banner by ID
-curl http://localhost:3000/api/banners/1
+curl http://localhost:3030/api/banners/1
 ```

@@ -10,7 +10,7 @@ if [ ! -d "node_modules" ]; then
 fi
 
 echo "Starting Ad Banner API server..."
-echo "Server will be available at http://localhost:3000"
+echo "Server will be available at http://localhost:3030"
 echo "API endpoints:"
 echo "  GET /health - Health check"
 echo "  GET /api/banners - Get all banners"

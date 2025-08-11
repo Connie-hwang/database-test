@@ -53,9 +53,9 @@ cd application && ./stop.sh
 cd application && nvm use 18 && npm install
 
 # Test API endpoints
-curl http://localhost:3000/health
-curl http://localhost:3000/api/banners
-curl http://localhost:3000/api/banners/1
+curl http://localhost:3030/health
+curl http://localhost:3030/api/banners
+curl http://localhost:3030/api/banners/1
 ```
 
 ## Key Configuration Details

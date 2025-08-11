@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql2/promise');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3030;
 
 // MariaDB Slave connection pool configuration
 const poolConfig = {

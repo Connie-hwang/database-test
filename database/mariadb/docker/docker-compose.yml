@@ -37,6 +37,20 @@ services:
       - mariadb-master
     restart: unless-stopped
 
+  replication-init:
+    image: mariadb:10.6.21
+    container_name: replication-init
+    volumes:
+      - ./init-replication.sh:/init-replication.sh
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - mariadb-network
+    depends_on:
+      - mariadb-master
+      - mariadb-slave
+    command: /bin/bash -c "apt-get update && apt-get install -y docker.io && /init-replication.sh"
+    restart: "no"
+
 volumes:
   master-data:
   slave-data:

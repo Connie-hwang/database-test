@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mariadb-master:
+    image: mariadb:10.6.21
+    container_name: mariadb-master
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpassword
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./master.cnf:/etc/mysql/mariadb.conf.d/master.cnf
+      - master-data:/var/lib/mysql
+    networks:
+      - mariadb-network
+    restart: unless-stopped
+
+  mariadb-slave:
+    image: mariadb:10.6.21
+    container_name: mariadb-slave
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpassword
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./slave.cnf:/etc/mysql/mariadb.conf.d/slave.cnf
+      - slave-data:/var/lib/mysql
+    networks:
+      - mariadb-network
+    depends_on:
+      - mariadb-master
+    restart: unless-stopped
+
+volumes:
+  master-data:
+  slave-data:
+
+networks:
+  mariadb-network:
+    driver: bridge

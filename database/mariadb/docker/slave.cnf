@@ -1,0 +1,16 @@
+[mysqld]
+server-id=2
+relay-log=relay-log-server
+relay-log-index=relay-log-server.index
+
+# Read only mode for slave
+read-only=1
+
+# Relay log settings
+relay-log-recovery=1
+relay-log-info-repository=TABLE
+master-info-repository=TABLE
+
+# Auto increment settings for slave
+auto-increment-increment=2
+auto-increment-offset=2

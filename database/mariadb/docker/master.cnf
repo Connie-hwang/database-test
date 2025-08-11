@@ -1,0 +1,18 @@
+[mysqld]
+log-bin=mysql-bin
+server-id=1
+binlog-do-db=testdb
+binlog-ignore-db=mysql
+binlog-ignore-db=information_schema
+binlog-ignore-db=performance_schema
+binlog-ignore-db=sys
+
+# Enable binary logging
+log-bin-trust-function-creators=1
+
+# Set binlog format
+binlog-format=ROW
+
+# Auto increment settings for master
+auto-increment-increment=2
+auto-increment-offset=1
